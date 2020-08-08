@@ -9,6 +9,9 @@ export default function TabOneScreen() {
 	const [bg, setBG] = React.useState("100");
 	const [carbs, setCarbs] = React.useState("0");
 
+	const focusNext = () => {
+	};
+
   return (
     <View style={styles.container}>
 			<View style={styles.input_container}>
@@ -18,7 +21,11 @@ export default function TabOneScreen() {
 					onChangeText={text => setBG(text)}
 					defaultValue={bg}
 					allowDecimal={false}
+					autoFocus={true}
+					onEndEditing={focusNext}
 				/>
+			</View>
+			<View style={styles.input_container}>
 				<Text style={styles.title}>Carbs: </Text>
 				<NumericalInput
 					placeholder="0"
@@ -41,9 +48,11 @@ const styles = StyleSheet.create({
   },
 	input_container: {
 		width: '50%',
+		flexDirection: 'row',
 		alignItems: 'flex-start',
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		minHeight: 0,
+		marginTop: 5,
 	},
   title: {
     fontSize: 20,
