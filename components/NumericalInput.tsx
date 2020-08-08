@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, TextInput, useThemeColor } from './Themed';
 import Colors from '../constants/Colors.ts';
 
-type NumericalInputProps = TextInputProps & { allowDecimal : bool };
+type NumericalInputProps = TextInputProps;
 
 export default function NumericalInput(props: NumericalInputProps) {
 	return (
@@ -18,7 +18,6 @@ export default function NumericalInput(props: NumericalInputProps) {
 				lightColor={Colors.light.tabIconDefault}
 				darkColor={Colors.light.highlightedText}
 				keyboardType="numeric"
-				maxLength={props.allowDecimal ? 5 : 3}
 			/>
 	);
 }

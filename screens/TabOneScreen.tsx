@@ -9,9 +9,6 @@ export default function TabOneScreen() {
 	const [bg, setBG] = React.useState("100");
 	const [carbs, setCarbs] = React.useState("0");
 
-	const focusNext = () => {
-	};
-
   return (
     <View style={styles.container}>
 			<View style={styles.input_container}>
@@ -20,9 +17,8 @@ export default function TabOneScreen() {
 					placeholder="100"
 					onChangeText={text => setBG(text)}
 					defaultValue={bg}
-					allowDecimal={false}
+					maxLength={3}
 					autoFocus={true}
-					onEndEditing={focusNext}
 				/>
 			</View>
 			<View style={styles.input_container}>
@@ -31,7 +27,7 @@ export default function TabOneScreen() {
 					placeholder="0"
 					onChangeText={text => setCarbs(text)}
 					defaultValue={carbs}
-					allowDecimal={true}
+					maxLength={5}
 				/>
 			</View>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />

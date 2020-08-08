@@ -1,15 +1,21 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import { IntervalInput, Interval } from '../components/IntervalInput';
 import { Text, View } from '../components/Themed';
 
 export default function TabTwoScreen() {
+	const [intervals, setIntervals] = React.useState({
+			hour: 0,
+			sf: 30, //sensibility factor
+			ci: 20  //carbohydrate-insulin
+		})
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+		{/*
+			* é de hora em hora, só que facilita copiar (vc pode copiar de um pra outro intervalo)
+		*/}
+			<IntervalInput/>
     </View>
   );
 }
