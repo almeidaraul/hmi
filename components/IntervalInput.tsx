@@ -1,27 +1,55 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Text, View } from './Themed';
-import { NumericalInput } from './NumericalInput';
+import NumericalInput from './NumericalInput';
+import { AntDesign } from '@expo/vector-icons';
+import Colors from '../constants/Colors';
 
-export type Interval = {
-	hour: number;
-	sf: number;
-	ci: number;
-};
+export function IntervalInput() {
+	const [ci, setCI] = React.useState("20");
+	const [fs, setFS] = React.useState("35");
 
-export function IntervalInput(props) {
 	return (
 		<View style={styles.container}>
-			<Text>oi</Text>
+			<Text style={styles.text}>20h-20h59:</Text>
+			<NumericalInput
+				style={styles.input}
+				placeholder="100"
+				onChangeText={text => setCI(text)}
+				defaultValue={ci}
+				maxLength={2}
+			/>
+			<NumericalInput
+				style={styles.input}
+				placeholder="100"
+				onChangeText={text => setFS(text)}
+				defaultValue={fs}
+				maxLength={2}
+			/>
+			<CopyButton/>
 		</View>
 	);
 }
 
+const CopyButton = () => {
+	return (
+		<TouchableHighlight>
+			<AntDesign name="copy1" size={24} color={Colors.light.tabIconDefault}/>
+		</TouchableHighlight>	
+	);
+}
 const styles = StyleSheet.create({
 		container: {
 			flex: 1,
 			flexDirection: 'row',
 			alignItems: 'center',
-			justifyContent: 'flex-start'	
+			justifyContent: 'flex-start',
+		},
+		text: {
+			margin: 5,
+		},
+		input: {
+			margin: 5,
+			textAlign: 'center',
 		},
 });

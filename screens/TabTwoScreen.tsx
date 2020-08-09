@@ -1,23 +1,30 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
-import { IntervalInput, Interval } from '../components/IntervalInput';
+import Colors from '../constants/Colors';
+import { IntervalInput } from '../components/IntervalInput';
 import { Text, View } from '../components/Themed';
 
 export default function TabTwoScreen() {
-	const [intervals, setIntervals] = React.useState({
-			hour: 0,
-			sf: 30, //sensibility factor
-			ci: 20  //carbohydrate-insulin
-		})
   return (
     <View style={styles.container}>
 		{/*
 			* é de hora em hora, só que facilita copiar (vc pode copiar de um pra outro intervalo)
 		*/}
 			<IntervalInput/>
+			<SaveButton/>	
     </View>
   );
+}
+
+const SaveButton = () => {
+	return (
+		<TouchableOpacity>
+			<Text>Save</Text>
+			<AntDesign name="save" size={24} color={Colors.light.tabIconDefault}/>
+		</TouchableOpacity>
+	);
 }
 
 const styles = StyleSheet.create({
