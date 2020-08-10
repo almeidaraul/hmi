@@ -3,6 +3,7 @@ import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Text, View } from './Themed';
 import NumericalInput from './NumericalInput';
 import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 
 export function IntervalInput() {
@@ -27,6 +28,7 @@ export function IntervalInput() {
 				maxLength={2}
 			/>
 			<CopyButton/>
+			<PasteButton/>
 		</View>
 	);
 }
@@ -38,12 +40,22 @@ const CopyButton = () => {
 		</TouchableHighlight>	
 	);
 }
+
+const PasteButton = () => {
+	return (
+		<TouchableHighlight>
+			<MaterialIcons name="content-paste" size={24} color={Colors.light.tabIconDefault}/>
+		</TouchableHighlight>
+	);
+}
+
 const styles = StyleSheet.create({
 		container: {
 			flex: 1,
 			flexDirection: 'row',
 			alignItems: 'center',
 			justifyContent: 'flex-start',
+			marginVertical: 2,
 		},
 		text: {
 			margin: 5,

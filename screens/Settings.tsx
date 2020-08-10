@@ -4,27 +4,25 @@ import { AntDesign } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import { IntervalInput } from '../components/IntervalInput';
-import { Text, View } from '../components/Themed';
+import { Text, ScrollView, View } from '../components/Themed';
 
-export default function TabTwoScreen() {
+export default function Settings() {
   return (
-    <View style={styles.container}>
+    <ScrollView>
+			<View style={styles.container}>
 		{/*
-			* é de hora em hora, só que facilita copiar (vc pode copiar de um pra outro intervalo)
+			* é de 2 em 2 horas, só que facilita copiar (vc pode copiar de um pra outro intervalo)
+			* salva automaticamente quando há alteração
 		*/}
-			<IntervalInput/>
-			<SaveButton/>	
-    </View>
+			<Text style={styles.title}>
+				Changes are automatically saved.
+			</Text>
+			{[...Array(12).keys()].map(h => {
+				return <IntervalInput key={h}/>
+			})}
+			</View>
+    </ScrollView>
   );
-}
-
-const SaveButton = () => {
-	return (
-		<TouchableOpacity>
-			<Text>Save</Text>
-			<AntDesign name="save" size={24} color={Colors.light.tabIconDefault}/>
-		</TouchableOpacity>
-	);
 }
 
 const styles = StyleSheet.create({
@@ -36,6 +34,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+		margin: 5,
   },
   separator: {
     marginVertical: 30,

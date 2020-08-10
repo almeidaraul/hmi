@@ -5,7 +5,7 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
 
-export default function TabOneScreen() {
+export default function Home() {
 	const [bg, setBG] = React.useState("100");
 	const [carbs, setCarbs] = React.useState("0");
 
