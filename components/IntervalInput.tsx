@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
-import { Text, View } from './Themed';
+
+import { Text, View, useThemeColor } from './Themed';
 import NumericalInput from './NumericalInput';
+
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+
 import Colors from '../constants/Colors';
 
 export function IntervalInput() {
@@ -34,17 +37,25 @@ export function IntervalInput() {
 }
 
 const CopyButton = () => {
+	const lightColor = Colors.light.buttonIconDefault;
+	const darkColor = Colors.dark.buttonIconDefault;
+	const color = useThemeColor({ light: lightColor, dark: darkColor });
+
 	return (
 		<TouchableHighlight>
-			<AntDesign name="copy1" size={24} color={Colors.light.tabIconDefault}/>
+			<AntDesign name="copy1" size={24} color={color}/>
 		</TouchableHighlight>	
 	);
 }
 
 const PasteButton = () => {
+	const lightColor = Colors.light.buttonIconDefault;
+	const darkColor = Colors.dark.buttonIconDefault;
+	const color = useThemeColor({ light: lightColor, dark: darkColor });
+
 	return (
 		<TouchableHighlight>
-			<MaterialIcons name="content-paste" size={24} color={Colors.light.tabIconDefault}/>
+			<MaterialIcons name="content-paste" size={24} color={color}/>
 		</TouchableHighlight>
 	);
 }

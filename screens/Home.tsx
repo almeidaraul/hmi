@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import InsulinRecommendation from '../components/InsulinRecommendation';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
 
@@ -31,7 +31,7 @@ export default function Home() {
 				/>
 			</View>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <InsulinRecommendation bg={bg} carbs={carbs} />
     </View>
   );
 }

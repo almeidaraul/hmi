@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
 		margin: 5,
   },
