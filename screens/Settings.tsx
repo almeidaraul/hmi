@@ -3,15 +3,20 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
+import { defaultIntervals, saveIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
 import { Text, ScrollView, View } from '../components/Themed';
 
 export default function Settings() {
-	const [intervals, setIntervals] = React.useState(
-		[...Array(12).keys()].map(k => {
-			return { ci: "20", fs: "35" };
-		})
-	);
+	const [intervals, setIntervals] = React.useState(defaultIntervals);
+
+	React.useEffect(() => {
+		getIntervals().then((value) => setIntervals(value));
+	}, []);
+
+	React.useEffect(() => {
+		saveIntervals(intervals);
+	}, [intervals]);
 
 	const [copiedInterval, setCopiedInterval] = React.useState(intervals[0]);
 

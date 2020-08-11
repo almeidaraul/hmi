@@ -56,8 +56,6 @@ const CopyButton = ({ onPress }: () => void) => {
 	const darkColor = Colors.dark.buttonIconDefault;
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
 
-	console.log({onPress: onPress});
-
 	return (
 		<TouchableHighlight onPress={onPress}>
 			<AntDesign name="copy1" size={24} color={color}/>
@@ -69,8 +67,6 @@ const PasteButton = ({ onPress }: () => void) => {
 	const lightColor = Colors.light.buttonIconDefault;
 	const darkColor = Colors.dark.buttonIconDefault;
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
-
-	console.log({onPress: onPress});
 
 	return (
 		<TouchableHighlight onPress={onPress}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import Colors from '../constants/Colors';
+import { defaultIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { Text, View } from './Themed';
 
 type InsulinRecommendationProps = {
@@ -10,15 +11,39 @@ type InsulinRecommendationProps = {
 };
 
 export default function InsulinRecommendation(props: InsulinRecommendationProps) {
-	let fs_now = 35;
-	let ci_now = 20;
-	let fs_next = 30;
-	let ci_next = 17;
+	const [intervals, setIntervals] = React.useState(defaultIntervals);
+	React.useEffect(() => getIntervals().then((value) => setIntervals(value)), []);
+
+	const in15minutes = () => {
+		const zeroBehind = (a) => {
+			return a > 9 ? String(a) : '0'+a;
+		};
+
+		const time = new Date(new Date().getTime()+15*60000);
+
+		return zeroBehind(time.getHours())+':'+zeroBehind(time.getMinutes());
+	}
+
 
 	const calculateInsulin = ({ now } : boolean) => {
+		const toIndex = (value: number) => {
+			value -= value%2;
+			return (value > 11 ? value-12 : value)/2;
+		};
+
+		const time = new Date();
+		const currentHour = toIndex(time.getHours());
+		const nextHour = toIndex((new Date(time.getTime()+15*60000)).getHours());
+		const fs_now = intervals[currentHour].fs;
+		const ci_now = intervals[currentHour].ci;
+		const fs_next = intervals[nextHour].fs;
+		const ci_next = intervals[nextHour].ci;
+		console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
+
 		let insulin: number;
-		if (now)
+		if (now) {
 			insulin = Number(props.carbs)/ci_now + (Number(props.bg)-100)/fs_now;
+		}
 		else
 			insulin = Number(props.carbs)/ci_next + (Number(props.bg)-100)/fs_next;
 		return Math.max(0, Math.round(insulin));
@@ -31,8 +56,8 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
           style={styles.text}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-					You should take { calculateInsulin('now') } { calculateInsulin('now') != 1 ? "units " : "unit " }
-					of insulin now or Y in 15 minutes (12:03).
+					You should take { calculateInsulin(true) } { calculateInsulin(true) != 1 ? "units " : "unit " }
+					of insulin now or { calculateInsulin(false) } in 15 minutes {in15minutes()}.
         </Text>
       </View>
     </View>
