@@ -12,7 +12,7 @@ type InsulinRecommendationProps = {
 
 export default function InsulinRecommendation(props: InsulinRecommendationProps) {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
-	React.useEffect(() => getIntervals().then((value) => setIntervals(value)), []);
+	React.useEffect(() => {getIntervals().then((value) => setIntervals(value))}, []);
 
 	const in15minutes = () => {
 		const zeroBehind = (a) => {
@@ -27,8 +27,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 
 	const calculateInsulin = ({ now } : boolean) => {
 		const toIndex = (value: number) => {
-			value -= value%2;
-			return (value > 11 ? value-12 : value)/2;
+			return (value-value%2)/2;
 		};
 
 		const time = new Date();
@@ -57,7 +56,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
 					You should take { calculateInsulin(true) } { calculateInsulin(true) != 1 ? "units " : "unit " }
-					of insulin now or { calculateInsulin(false) } in 15 minutes {in15minutes()}.
+					of insulin now or { calculateInsulin(false) } in 15 minutes ({in15minutes()}).
         </Text>
       </View>
     </View>

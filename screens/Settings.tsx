@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { defaultIntervals, saveIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
+import IntervalInputGuide from '../components/IntervalInputGuide';
 import { Text, ScrollView, View } from '../components/Themed';
 
 export default function Settings() {
@@ -53,6 +54,7 @@ export default function Settings() {
 			<Text style={styles.title}>
 				Changes are automatically saved.
 			</Text>
+			<IntervalInputGuide/>
 			{[...Array(12).keys()].map(h => {
 				return (
 					<IntervalInput
