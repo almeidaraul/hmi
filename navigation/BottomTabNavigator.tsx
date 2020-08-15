@@ -53,7 +53,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="Home"
         component={Home}
-        options={{ headerTitle: 'Home' }}
+        options={{ headerTitle: 'How Much Insulin?' }}
       />
     </TabOneStack.Navigator>
   );
