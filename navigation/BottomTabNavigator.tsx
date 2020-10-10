@@ -12,6 +12,8 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
+const STRINGS = require('../assets/strings.js');
+
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
@@ -20,14 +22,14 @@ export default function BottomTabNavigator() {
       initialRouteName="TabOne"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Home"
+        name={STRINGS.home}
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Settings"
+        name={STRINGS.settings}
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
@@ -67,7 +69,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="Settings"
         component={Settings}
-        options={{ headerTitle: 'Settings' }}
+        options={{ headerTitle: STRINGS.settings }}
       />
     </TabTwoStack.Navigator>
   );

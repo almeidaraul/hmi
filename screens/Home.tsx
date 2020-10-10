@@ -5,6 +5,8 @@ import InsulinRecommendation from '../components/InsulinRecommendation';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
 
+const STRINGS = require('../assets/strings.js');
+
 export default function Home() {
 	const [bg, setBG] = React.useState("100");
 	const [carbs, setCarbs] = React.useState("0");
@@ -12,7 +14,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
 			<View style={styles.input_container}>
-				<Text style={styles.title}>BG: </Text>
+				<Text style={styles.title}>{STRINGS.bg}</Text>
 				<NumericalInput
 					placeholder="100"
 					onChangeText={text => setBG(text)}
@@ -22,7 +24,7 @@ export default function Home() {
 				/>
 			</View>
 			<View style={styles.input_container}>
-				<Text style={styles.title}>Carbs: </Text>
+				<Text style={styles.title}>{STRINGS.carbs}</Text>
 				<NumericalInput
 					placeholder="0"
 					onChangeText={text => setCarbs(text)}
