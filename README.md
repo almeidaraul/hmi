@@ -3,9 +3,6 @@ Tells you how much insulin to take based on current blood glucose reading and gr
 
 ![Screenshot of the home screen](https://github.com/almeidaraul/hmi/blob/master/hmi_screenshot.jpg?raw=true)
 
-# Plans for Hacktoberfest
-I'd like to add support for different languages before Hacktoberfest, so that people can participate in the event by helping me here. There would also need to be a **contributing** section here.
-
 # To do
 * [ ] support for translations
 * [ ] target BG configurable by interval
