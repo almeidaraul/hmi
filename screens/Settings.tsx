@@ -8,7 +8,7 @@ import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
 import IntervalInputGuide from '../components/IntervalInputGuide';
 import { Text, ScrollView, View } from '../components/Themed';
 
-const STRINGS = require('../assets/strings.js');
+const STRINGS = require('../assets/strings.js').strings;
 
 export default function Settings() {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);

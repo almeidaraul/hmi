@@ -10,7 +10,7 @@ type InsulinRecommendationProps = {
 	carbs: string,
 };
 
-const STRINGS = require('../assets/strings.js');
+const STRINGS = require('../assets/strings.js').strings;
 
 export default function InsulinRecommendation(props: InsulinRecommendationProps) {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
@@ -39,7 +39,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 		const ci_now = intervals[currentHour].ci;
 		const fs_next = intervals[nextHour].fs;
 		const ci_next = intervals[nextHour].ci;
-		console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
+		//console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
 
 		let insulin: number;
 		if (now) {

@@ -5,7 +5,7 @@ import InsulinRecommendation from '../components/InsulinRecommendation';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
 
-const STRINGS = require('../assets/strings.js');
+const STRINGS = require('../assets/strings.js').strings;
 
 export default function Home() {
 	const [bg, setBG] = React.useState("100");

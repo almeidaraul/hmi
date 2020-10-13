@@ -14,6 +14,19 @@ const content = {
 };
 
 
-var current_lang = "en_US";
+var default_lang = "en_US";
 
-module.exports = content[current_lang];
+const get_strings = (lang) => {
+	if (content[lang])
+		return content[lang];
+	else
+		return content["en_US"];
+};
+
+var strings = {
+	lang: default_lang,
+	strings: get_strings(default_lang),
+	get_strings: get_strings,
+}
+
+module.exports = strings; 

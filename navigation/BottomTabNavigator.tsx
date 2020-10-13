@@ -3,6 +3,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
+import { Platform, NativeModules } from 'react-native'
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -12,10 +13,22 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-const STRINGS = require('../assets/strings.js');
+const STRINGSRC = require('../assets/strings.js');
+const STRINGS = STRINGSRC.strings;
+
+const locale = () => {
+	const deviceLanguage =
+	  Platform.OS === 'ios'
+		? NativeModules.SettingsManager.settings.AppleLocale ||
+		  NativeModules.SettingsManager.settings.AppleLanguages[0] //iOS 13
+		: NativeModules.I18nManager.localeIdentifier;
+
+	return deviceLanguage;
+}
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  STRINGSRC.strings = STRINGSRC.get_strings(locale());
 
   return (
     <BottomTab.Navigator
