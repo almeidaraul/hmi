@@ -11,6 +11,18 @@ const content = {
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
 	},
+	"es_ES": {
+		home: "Inicio",
+		settings: "Ajustes",
+		bg: "Glicemia: ",
+		carbs: "Carbohidratos: ",
+		take_now_singular: "Tome % unidade de insulina ahora o % en 15 minutos (%).",
+		take_now_plural: "Tome % unidades de insulina ahora o % en 15 minutos (%).",
+		changes_are_saved: "Los cambios son guardados automáticamente.",
+		hour: "HH:",
+		carb_insulin: "C:I",
+		sensibility_factor: "FS",
+	},
 };
 
 
