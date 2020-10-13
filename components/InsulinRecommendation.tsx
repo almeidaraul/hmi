@@ -10,6 +10,8 @@ type InsulinRecommendationProps = {
 	carbs: string,
 };
 
+const STRINGS = require('../assets/strings.js').strings;
+
 export default function InsulinRecommendation(props: InsulinRecommendationProps) {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
 	React.useEffect(() => {getIntervals().then((value) => setIntervals(value))}, []);
@@ -37,7 +39,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 		const ci_now = intervals[currentHour].ci;
 		const fs_next = intervals[nextHour].fs;
 		const ci_next = intervals[nextHour].ci;
-		console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
+		//console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
 
 		let insulin: number;
 		if (now) {
@@ -47,6 +49,14 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 			insulin = Number(props.carbs)/ci_next + (Number(props.bg)-100)/fs_next;
 		return Math.max(0, Math.round(insulin));
 	};
+
+  const recomendation_string = () => {
+	var u = calculateInsulin(true);
+	var i = calculateInsulin(false);
+	var content_raw = u == 1 ? STRINGS.take_now_singular : STRINGS.take_now_plural;
+	content_raw = content_raw.split('%');
+	return content_raw[0] + u + content_raw[1] + i + content_raw[2] + in15minutes() + content_raw[3];
+  }
 	
   return (
     <View>
@@ -55,8 +65,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
           style={styles.text}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-					You should take { calculateInsulin(true) } { calculateInsulin(true) != 1 ? "units " : "unit " }
-					of insulin now or { calculateInsulin(false) } in 15 minutes ({in15minutes()}).
+			{recomendation_string()}
         </Text>
       </View>
     </View>
