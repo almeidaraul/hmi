@@ -11,6 +11,18 @@ const content = {
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
 	},
+	"de_DE": {
+		home: "Startseite",
+		settings: "Einstellungen",
+		bg: "Blutzucker: ",
+		carbs: "Kohlenhydrate: ",
+		take_now_singular: "Du solltest % Einheit Insulin jetzt oder % in 15 Minuten einnehmen (%).",
+		take_now_plural: "Du solltest % Einheiten Insulin jetzt oder % in 15 Minuten einnehmen (%).",
+		changes_are_saved: "Änderungen werden automatisch gespeichert.",
+		hour: "HH:",
+		carb_insulin: "IC",
+		sensibility_factor: "ISF",
+	},
 	"cs": {
 		home: "Domů",
 		settings: "Nastavení",
