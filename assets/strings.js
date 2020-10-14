@@ -11,6 +11,18 @@ const content = {
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
 	},
+	"cs": {
+		home: "Domů",
+		settings: "Nastavení",
+		bg: "Krevní cukr: ",
+		carbs: "Sacharidy: ",
+		take_now_singular: "Měl(a) byste si vzít % jednotku inzulinu nyní nebo % za 15 minut (%).",
+		take_now_plural: "Měl(a) byste si vzít % jednotek inzulinu nyní nebo % za 15 minut (%).",
+		changes_are_saved: "Změny jsou automaticky uloženy.",
+		hour: "HH:",
+		carb_insulin: "S:I",
+		sensibility_factor: "ISF",
+	},
 };
 
 
