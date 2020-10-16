@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Text, View, useThemeColor } from './Themed';
 import NumericalInput from './NumericalInput';
@@ -57,9 +57,9 @@ const CopyButton = ({ onPress }: () => void) => {
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
 
 	return (
-		<TouchableHighlight onPress={onPress}>
+		<TouchableOpacity onPress={onPress}>
 			<AntDesign name="copy1" size={24} color={color}/>
-		</TouchableHighlight>	
+		</TouchableOpacity>	
 	);
 }
 
@@ -69,9 +69,9 @@ const PasteButton = ({ onPress }: () => void) => {
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
 
 	return (
-		<TouchableHighlight onPress={onPress}>
+		<TouchableOpacity onPress={onPress}>
 			<MaterialIcons name="content-paste" size={24} color={color}/>
-		</TouchableHighlight>
+		</TouchableOpacity>
 	);
 }
 
