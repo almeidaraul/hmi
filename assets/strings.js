@@ -83,6 +83,18 @@ const content = {
 		carb_insulin: "Schéma insulinique",
 		sensibility_factor: "Facteur de sensibilité",
 	},
+	"hu": {
+		home: "Kezdőoldal",
+		settings: "Beállítások",
+		bg: "Vércukorszint: ",
+		carbs: "Szénhidrátok: ",
+		take_now_singular: "% egység inzulin bevitele szükséges most vagy % egység 15 perc múlva (%).",
+		take_now_plural: "% egység inzulin bevitele szükséges most vagy % egység 15 perc múlva (%).",
+		changes_are_saved: "Változtatások automatikusan mentve.",
+		hour: "Ó:",
+		carb_insulin: "SZ:I",
+		sensibility_factor: "IÉ",
+	},
 };
 
 
