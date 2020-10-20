@@ -71,6 +71,18 @@ const content = {
 		carb_insulin: "S:I",
 		sensibility_factor: "ISF",
 	},
+	"fr_FR": {
+		home: "Page d'accueil",
+		settings: "Paramètres",
+		bg: "Glucose sanguin : ",
+		carbs: "Glucides : ",
+		take_now_singular: "Vous devriez prendre % unité d'insuline maintenant ou % dans 15 minutes (%).",
+		take_now_plural: "Vous devriez prendre % unités d'insuline maintenant ou % dans 15 minutes (%).",
+		changes_are_saved: "Les modifications sont sauvegardées automatiquement.",
+		hour: "HH:",
+		carb_insulin: "Schéma insulinique",
+		sensibility_factor: "Facteur de sensibilité",
+	},
 	"hu": {
 		home: "Kezdőoldal",
 		settings: "Beállítások",
