@@ -95,6 +95,18 @@ const content = {
 		carb_insulin: "SZ:I",
 		sensibility_factor: "IÉ",
 	},
+	"nb_NO": {
+		home: "Hjem",
+		settings: "Innstillinger",
+		bg: "Blodsukker: ",
+		carbs: "Karbohydrater: ",
+		take_now_singular: "Du bør ta % enhet med insulin nå eller % om 15 minutter (%).",
+		take_now_plural: "Du bør ta % enheter med insulin nå eller % om 15 minutter (%).",
+		changes_are_saved: "Endringer blir lagret automatisk.",
+		hour: "HH:",
+		carb_insulin: "C:I",
+		sensibility_factor: "SF",
+	},
 };
 
 
