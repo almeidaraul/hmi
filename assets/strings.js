@@ -119,6 +119,18 @@ const content = {
 		carb_insulin: "В:І",
 		sensibility_factor: "КЧ",
 	},
+	"it_IT" : {
+		home: "Home",
+		settings: "Impostazioni",
+		bg: "Glicemia: ",
+		carbs: "Carboidrati: ",
+		take_now_singular: "Devi prendere % unità di insulina ora oppure % fra 15 minuti (%).",
+		take_now_plural: "Devi prendere % unità di insulina ora oppure % fra 15 minuti (%).",
+		changes_are_saved: "Le modifiche sono salvate automaticamente.",
+		hour: "HH:",
+		carb_insulin: "I/CHO",
+		sensibility_factor: "FSI",
+	},
 };
 
 
