@@ -107,6 +107,18 @@ const content = {
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
 	},
+	"uk": {
+		home: "Дім",
+		settings: "Налаштування",
+		bg: "Глюкози в крові: ",
+		carbs: "Вуглеводів: ",
+		take_now_singular: "Ви повинні прийняти % одиниці інсуліну зараз або % через 15 хвилин (%).",
+		take_now_plural: "Ви повинні прийняти % одиниць інсуліну зараз % через 15 хвилин (%).",
+		changes_are_saved: "Зміни зберігаються автоматично.",
+		hour: "ГГ:",
+		carb_insulin: "В:І",
+		sensibility_factor: "КЧ",
+	},
 	"it_IT" : {
 		home: "Home",
 		settings: "Impostazioni",
@@ -118,7 +130,7 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "I/CHO",
 		sensibility_factor: "FSI",
-	}
+	},
 };
 
 
