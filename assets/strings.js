@@ -116,8 +116,8 @@ const content = {
 		take_now_plural: "Ви повинні прийняти % одиниць інсуліну зараз % через 15 хвилин (%).",
 		changes_are_saved: "Зміни зберігаються автоматично.",
 		hour: "ГГ:",
-		carb_insulin: "Відношення вуглеводи-інсулін",
-		sensibility_factor: "Коефіцієнт чутливості",
+		carb_insulin: "В:І",
+		sensibility_factor: "КЧ",
 	},
 };
 
