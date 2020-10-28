@@ -116,8 +116,8 @@ const content = {
 		take_now_plural: "Devi prendere % unità di insulina ora oppure % fra 15 minuti (%).",
 		changes_are_saved: "Le modifiche sono salvate automaticamente.",
 		hour: "HH:",
-		carb_insulin: "Rapporto insulina/CHO",
-		sensibility_factor: "Fattore di insulino-sensibilità",
+		carb_insulin: "I/CHO",
+		sensibility_factor: "FSI",
 	}
 };
 
