@@ -3,24 +3,26 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from './Themed';
 import Colors from '../constants/Colors';
-const STRINGS = require('../assets/strings.js');
+import useStrings from '../hooks/useStrings';
 
 export default function IntervalInputGuide() {
+	const Strings = useStrings();
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.aboveText}>
 				<Text style={styles.text}>
-				  {STRINGS.hour}
+				  {Strings.hour}
 				</Text>
 			</View>
 			<View style={styles.aboveInput}>
 				<Text style={styles.text}>
-				  {STRINGS.carb_insulin}
+				  {Strings.carb_insulin}
 				</Text>
 			</View>
 			<View style={styles.aboveInput}>
 				<Text style={styles.text}>
-				  {STRINGS.sensibility_factor}
+				  {Strings.sensibility_factor}
 				</Text>
 			</View>
 		</View>

@@ -8,10 +8,11 @@ import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
 import IntervalInputGuide from '../components/IntervalInputGuide';
 import { Text, ScrollView, View } from '../components/Themed';
 
-const STRINGS = require('../assets/strings.js').strings;
+import useStrings from '../hooks/useStrings';
 
 export default function Settings() {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
+	const Strings = useStrings();
 
 	React.useEffect(() => {
 		getIntervals().then((value) => setIntervals(value));
@@ -54,7 +55,7 @@ export default function Settings() {
 			* salva automaticamente quando há alteração
 		*/}
 			<Text style={styles.title}>
-				{STRINGS.changes_are_saved}
+				{Strings.changes_are_saved}
 			</Text>
 			<IntervalInputGuide/>
 			{[...Array(12).keys()].map(h => {

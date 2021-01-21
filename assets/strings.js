@@ -140,7 +140,7 @@ const get_strings = (lang) => {
 	if (content[lang])
 		return content[lang];
 	else
-		return content["en_US"];
+		return content[default_lang];
 };
 
 var strings = {

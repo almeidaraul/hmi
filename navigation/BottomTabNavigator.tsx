@@ -3,51 +3,39 @@ import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { Platform, NativeModules } from 'react-native'
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import Home from '../screens/Home';
 import Settings from '../screens/Settings';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import useStrings from '../hooks/useStrings.ts';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-const STRINGSRC = require('../assets/strings.js');
-const STRINGS = STRINGSRC.strings;
-
-const locale = () => {
-	const deviceLanguage =
-	  Platform.OS === 'ios'
-		? NativeModules.SettingsManager.settings.AppleLocale ||
-		  NativeModules.SettingsManager.settings.AppleLanguages[0] //iOS 13
-		: NativeModules.I18nManager.localeIdentifier;
-
-	return deviceLanguage;
-}
-
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-  STRINGSRC.strings = STRINGSRC.get_strings(locale());
+	const Strings = useStrings();
 
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name={STRINGS.home}
+        name={Strings.home}
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name={STRINGS.settings}
-        component={TabTwoNavigator}
+        name={Strings.settings}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
         }}
-      />
+      >
+				{props => <TabTwoNavigator headerTitle={ Strings.settings }/>}
+			</BottomTab.Screen>
     </BottomTab.Navigator>
   );
 }
@@ -62,7 +50,7 @@ function TabBarIcon(props: { name: string; color: string }) {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
-function TabOneNavigator() {
+function TabOneNavigator(options) {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
@@ -76,13 +64,13 @@ function TabOneNavigator() {
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator() {
+function TabTwoNavigator(options) {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
         name="Settings"
         component={Settings}
-        options={{ headerTitle: STRINGS.settings }}
+				options={{ ...options }}
       />
     </TabTwoStack.Navigator>
   );

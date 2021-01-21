@@ -5,16 +5,17 @@ import Colors from '../constants/Colors';
 import { defaultIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { Text, View } from './Themed';
 
+import useStrings from '../hooks/useStrings';
+
 type InsulinRecommendationProps = {
 	bg: string,
 	carbs: string,
 };
 
-const STRINGS = require('../assets/strings.js').strings;
-
 export default function InsulinRecommendation(props: InsulinRecommendationProps) {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
 	React.useEffect(() => {getIntervals().then((value) => setIntervals(value))}, []);
+	const Strings = useStrings();
 
 	const in15minutes = () => {
 		const zeroBehind = (a) => {
@@ -53,7 +54,7 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
   const recomendation_string = () => {
 	var u = calculateInsulin(true);
 	var i = calculateInsulin(false);
-	var content_raw = u == 1 ? STRINGS.take_now_singular : STRINGS.take_now_plural;
+	var content_raw = u == 1 ? Strings.take_now_singular : Strings.take_now_plural;
 	content_raw = content_raw.split('%');
 	return content_raw[0] + u + content_raw[1] + i + content_raw[2] + in15minutes() + content_raw[3];
   }

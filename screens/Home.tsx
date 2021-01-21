@@ -4,17 +4,17 @@ import { StyleSheet } from 'react-native';
 import InsulinRecommendation from '../components/InsulinRecommendation';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
-
-const STRINGS = require('../assets/strings.js').strings;
+import useStrings from '../hooks/useStrings';
 
 export default function Home() {
 	const [bg, setBG] = React.useState("100");
 	const [carbs, setCarbs] = React.useState("0");
+	const Strings = useStrings();
 
   return (
     <View style={styles.container}>
 			<View style={styles.input_container}>
-				<Text style={styles.title}>{STRINGS.bg}</Text>
+				<Text style={styles.title}>{Strings.bg}</Text>
 				<NumericalInput
 					placeholder="100"
 					onChangeText={text => setBG(text)}
@@ -24,7 +24,7 @@ export default function Home() {
 				/>
 			</View>
 			<View style={styles.input_container}>
-				<Text style={styles.title}>{STRINGS.carbs}</Text>
+				<Text style={styles.title}>{Strings.carbs}</Text>
 				<NumericalInput
 					placeholder="0"
 					onChangeText={text => setCarbs(text)}
