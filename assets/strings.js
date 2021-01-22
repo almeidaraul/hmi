@@ -2,8 +2,8 @@ const content = {
 	"en_US": {
 		home: "Home",
 		settings: "Settings",
-		bg: "BG: ",
-		carbs: "Carbs: ",
+		bg: "Blood Glucose: ",
+		carbs: "Carbohydrates: ",
 		take_now_singular: "You should take % unit of insulin now or % in 15 minutes (%).",
 		take_now_plural: "You should take % units of insulin now or % in 15 minutes (%).",
 		changes_are_saved: "Changes are automatically saved.",
@@ -80,8 +80,8 @@ const content = {
 		take_now_plural: "Vous devriez prendre % unités d'insuline maintenant ou % dans 15 minutes (%).",
 		changes_are_saved: "Les modifications sont sauvegardées automatiquement.",
 		hour: "HH:",
-		carb_insulin: "Schéma insulinique",
-		sensibility_factor: "Facteur de sensibilité",
+		carb_insulin: "SI", //"Schéma insulinique",
+		sensibility_factor: "FS", //"Facteur de sensibilité",
 	},
 	"hu": {
 		home: "Kezdőoldal",

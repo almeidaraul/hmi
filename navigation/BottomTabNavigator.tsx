@@ -9,7 +9,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import Home from '../screens/Home';
 import Settings from '../screens/Settings';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
-import useStrings from '../hooks/useStrings.ts';
+import useStrings from '../assets/useStrings.ts';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 

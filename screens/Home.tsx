@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import InsulinRecommendation from '../components/InsulinRecommendation';
 import { Text, View } from '../components/Themed';
 import NumericalInput from '../components/NumericalInput';
-import useStrings from '../hooks/useStrings';
+import useStrings from '../assets/useStrings';
 
 export default function Home() {
 	const [bg, setBG] = React.useState("100");
@@ -21,6 +21,7 @@ export default function Home() {
 					defaultValue={bg}
 					maxLength={3}
 					autoFocus={true}
+					style={styles.numericalInput}
 				/>
 			</View>
 			<View style={styles.input_container}>
@@ -30,6 +31,7 @@ export default function Home() {
 					onChangeText={text => setCarbs(text)}
 					defaultValue={carbs}
 					maxLength={5}
+					style={styles.numericalInput}
 				/>
 			</View>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 	input_container: {
-		width: '50%',
+		width: '60%',
 		flexDirection: 'row',
 		alignItems: 'flex-start',
 		justifyContent: 'space-between',
@@ -61,4 +63,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+	numericalInput: {
+		alignSelf: 'flex-start',
+	},
 });

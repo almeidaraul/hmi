@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from './Themed';
 import Colors from '../constants/Colors';
-import useStrings from '../hooks/useStrings';
+import useStrings from '../assets/useStrings';
 
 export default function IntervalInputGuide() {
 	const Strings = useStrings();

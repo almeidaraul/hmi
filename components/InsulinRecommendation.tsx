@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 import { defaultIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { Text, View } from './Themed';
 
-import useStrings from '../hooks/useStrings';
+import useStrings from '../assets/useStrings';
 
 type InsulinRecommendationProps = {
 	bg: string,

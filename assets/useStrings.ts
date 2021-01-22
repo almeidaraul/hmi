@@ -1,10 +1,7 @@
-import { useState, useEffect } from 'react';
 import { Platform, NativeModules } from 'react-native'
 import { get_strings } from '../assets/strings.js';
 
 export default function useStrings() {
-	const [lang, setLang] = useState("en_US");
-
 	const getLocale = () => {
 		const deviceLanguage =
 			Platform.OS === 'ios'
@@ -15,9 +12,5 @@ export default function useStrings() {
 		return deviceLanguage;
 	}
 
-	useEffect(() => {
-		setLang(getLocale());
-	}, []);
-
-  return get_strings(lang);
+  return get_strings(getLocale());
 }
