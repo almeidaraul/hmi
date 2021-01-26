@@ -3,16 +3,20 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
+import useColorScheme from '../hooks/useColorScheme';
 import { defaultIntervals, saveIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
-import IntervalInputGuide from '../components/IntervalInputGuide';
 import { Text, ScrollView, View } from '../components/Themed';
 
 import useStrings from '../assets/useStrings';
 
 export default function Settings() {
 	const [intervals, setIntervals] = React.useState(defaultIntervals);
+	const [editLock, setEditLock] = React.useState(true);
 	const Strings = useStrings();
+	const colorScheme = useColorScheme();
+
+	const updateLock = () => setEditLock(!editLock);
 
 	React.useEffect(() => {
 		getIntervals().then((value) => setIntervals(value));
@@ -57,7 +61,21 @@ export default function Settings() {
 			<Text style={styles.title}>
 				{Strings.changes_are_saved}
 			</Text>
-			<IntervalInputGuide/>
+			<TouchableOpacity
+				activeOpacity={0.8}
+				style={styles.buttonOpacity}
+				onPress={updateLock}
+			>
+				<AntDesign
+					name={editLock ? "lock1" : "unlock"}
+					size={24}
+					color={Colors[colorScheme].text}
+					style={styles.buttonContentSpaced}
+				/>
+				<Text style={styles.buttonContentSpaced}>
+					Enable editing
+				</Text>
+			</TouchableOpacity>
 			{[...Array(12).keys()].map(h => {
 				return (
 					<IntervalInput
@@ -87,10 +105,29 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
 		margin: 5,
+		textAlign: 'center',
   },
   separator: {
     marginVertical: 30,
     height: 1,
     width: '80%',
   },
+	buttonOpacity: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: 10,
+		minWidth: 180,
+		minHeight: 30,
+		borderColor: Colors.light.tabIconDefault,
+		borderStyle: 'solid',
+		borderWidth: 1,
+		borderRadius: 3,
+		marginTop: 15,
+		marginBottom: 15,
+	},
+	buttonContentSpaced: {
+		paddingLeft: 3,
+		paddingRight: 3,
+	},
 });
