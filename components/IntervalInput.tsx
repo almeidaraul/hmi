@@ -5,7 +5,6 @@ import { Text, View, useThemeColor } from './Themed';
 import NumericalInput from './NumericalInput';
 
 import { AntDesign } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 
@@ -20,6 +19,13 @@ type IntervalInputProps = IntervalInfo & {
 	setFS: (h: number) => void,
 	copy: () => void,
 	paste: () => void,
+	editLock: boolean,
+}
+
+type IntervalButtonProps = {
+	onPress: () => void,
+	name: string,
+	editLock: boolean,
 }
 
 export function IntervalInput(props: IntervalInputProps) {
@@ -34,21 +40,33 @@ export function IntervalInput(props: IntervalInputProps) {
 			<NumericalInput
 				style={styles.input}
 				placeholder="100"
-				onChangeText={text => props.setCI(text)}
+				onChangeText={text => !props.editLock && props.setCI(text)}
 				defaultValue={props.ci}
 				maxLength={2}
+				editable={!props.editLock}
 			/>
 			<NumericalInput
 				style={styles.input}
 				placeholder="100"
-				onChangeText={text => props.setFS(text)}
+				onChangeText={text => !props.editLock && props.setFS(text)}
 				defaultValue={props.fs}
 				maxLength={2}
+				editable={!props.editLock}
 			/>
-			<CopyButton onPress={props.copy}/>
-			<PasteButton onPress={props.paste}/>
+			<CopyButton onPress={() => console.log("TODO")}/>
+			<DeleteButton onPress={() => console.log("TODO")}/>
+			<IntervalButton onPress={() => console.log("TODO")} editLock={editLock} name={"unlock"}/>
 		</View>
 	);
+}
+
+const IntervalButton = (props: IntervalButtonProps) => {
+	const lightColor = Colors.light.buttonIconDefault;
+	const darkColor = Colors.dark.buttonIconDefault;
+	const color = useThemeColor({ light: lightColor, dark: darkColor });
+	<TouchableOpacity onPress={onPress} style={ editLock ? styles.lowOpacity : styles.normalOpacity }>
+		<AntDesign name={name} size={24} color={color}/>
+	</TouchableOpacity>	
 }
 
 const CopyButton = ({ onPress }: () => void) => {
@@ -63,14 +81,14 @@ const CopyButton = ({ onPress }: () => void) => {
 	);
 }
 
-const PasteButton = ({ onPress }: () => void) => {
+const DeleteButton = ({ onPress }: () => void) => {
 	const lightColor = Colors.light.buttonIconDefault;
 	const darkColor = Colors.dark.buttonIconDefault;
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
 
 	return (
 		<TouchableOpacity onPress={onPress}>
-			<MaterialIcons name="content-paste" size={24} color={color}/>
+			<AntDesign name="delete" size={24} color={color}/>
 		</TouchableOpacity>
 	);
 }
@@ -89,5 +107,9 @@ const styles = StyleSheet.create({
 		input: {
 			margin: 5,
 			textAlign: 'center',
+		},
+		lowOpacity: {
+		},
+		normalOpacity: {
 		},
 });

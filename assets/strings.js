@@ -10,6 +10,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"es_UY": {
 		home: "Hogar",
@@ -22,6 +24,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"es_ES": {
 		home: "Inicio",
@@ -34,6 +38,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "C:I",
 		sensibility_factor: "FS",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
   },
 	"pt_BR": {
 		home: "Início",
@@ -46,6 +52,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "I:C",
 		sensibility_factor: "FS",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
   },
 	"de_DE": {
 		home: "Startseite",
@@ -58,6 +66,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "IC",
 		sensibility_factor: "ISF",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"cs": {
 		home: "Domů",
@@ -70,6 +80,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "S:I",
 		sensibility_factor: "ISF",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"fr_FR": {
 		home: "Page d'accueil",
@@ -82,6 +94,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "SI", //"Schéma insulinique",
 		sensibility_factor: "FS", //"Facteur de sensibilité",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"hu": {
 		home: "Kezdőoldal",
@@ -94,6 +108,8 @@ const content = {
 		hour: "Ó:",
 		carb_insulin: "SZ:I",
 		sensibility_factor: "IÉ",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"nb_NO": {
 		home: "Hjem",
@@ -106,6 +122,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "C:I",
 		sensibility_factor: "SF",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"uk": {
 		home: "Дім",
@@ -118,6 +136,8 @@ const content = {
 		hour: "ГГ:",
 		carb_insulin: "В:І",
 		sensibility_factor: "КЧ",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 	"it_IT" : {
 		home: "Home",
@@ -130,6 +150,8 @@ const content = {
 		hour: "HH:",
 		carb_insulin: "I/CHO",
 		sensibility_factor: "FSI",
+		enable_edit: "Enable editing",
+		disable_edit: "Disable editing",
 	},
 };
 

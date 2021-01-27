@@ -16,7 +16,7 @@ export default function Settings() {
 	const Strings = useStrings();
 	const colorScheme = useColorScheme();
 
-	const updateLock = () => setEditLock(!editLock);
+	const updateLock = () => { console.log(!editLock); setEditLock(!editLock); }
 
 	React.useEffect(() => {
 		getIntervals().then((value) => setIntervals(value));
@@ -73,7 +73,7 @@ export default function Settings() {
 					style={styles.buttonContentSpaced}
 				/>
 				<Text style={styles.buttonContentSpaced}>
-					Enable editing
+					{ editLock ? Strings.enable_edit : Strings.disable_edit }
 				</Text>
 			</TouchableOpacity>
 			{[...Array(12).keys()].map(h => {
@@ -87,6 +87,7 @@ export default function Settings() {
 						fs={intervals[h].fs}
 						copy={() => copyInterval(h)}
 						paste={() => pasteInterval(h)}
+						editLock={editLock}
 					/>
 				);
 			})}
