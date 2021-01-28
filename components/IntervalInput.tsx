@@ -53,9 +53,16 @@ export function IntervalInput(props: IntervalInputProps) {
 				maxLength={2}
 				editable={!props.editLock}
 			/>
-			<CopyButton onPress={() => console.log("TODO")}/>
-			<DeleteButton onPress={() => console.log("TODO")}/>
-			<IntervalButton onPress={() => console.log("TODO")} editLock={editLock} name={"unlock"}/>
+			<IntervalButton
+				onPress={() => console.log("TODO")}
+				editLock={props.editLock}
+				name="copy1"
+			/>
+			<IntervalButton
+				onPress={() => console.log("TODO")}
+				editLock={props.editLock}
+				name="delete"
+			/>
 		</View>
 	);
 }
@@ -64,32 +71,13 @@ const IntervalButton = (props: IntervalButtonProps) => {
 	const lightColor = Colors.light.buttonIconDefault;
 	const darkColor = Colors.dark.buttonIconDefault;
 	const color = useThemeColor({ light: lightColor, dark: darkColor });
-	<TouchableOpacity onPress={onPress} style={ editLock ? styles.lowOpacity : styles.normalOpacity }>
-		<AntDesign name={name} size={24} color={color}/>
-	</TouchableOpacity>	
-}
-
-const CopyButton = ({ onPress }: () => void) => {
-	const lightColor = Colors.light.buttonIconDefault;
-	const darkColor = Colors.dark.buttonIconDefault;
-	const color = useThemeColor({ light: lightColor, dark: darkColor });
-
+	const style = props.editLock ? styles.lowOpacity : styles.normalOpacity;
 	return (
-		<TouchableOpacity onPress={onPress}>
-			<AntDesign name="copy1" size={24} color={color}/>
+		<TouchableOpacity
+			onPress={props.onPress}
+		>
+			<AntDesign name={props.name} size={24} color={color} style={style}/>
 		</TouchableOpacity>	
-	);
-}
-
-const DeleteButton = ({ onPress }: () => void) => {
-	const lightColor = Colors.light.buttonIconDefault;
-	const darkColor = Colors.dark.buttonIconDefault;
-	const color = useThemeColor({ light: lightColor, dark: darkColor });
-
-	return (
-		<TouchableOpacity onPress={onPress}>
-			<AntDesign name="delete" size={24} color={color}/>
-		</TouchableOpacity>
 	);
 }
 
@@ -109,7 +97,9 @@ const styles = StyleSheet.create({
 			textAlign: 'center',
 		},
 		lowOpacity: {
+			opacity: 0.4,
 		},
 		normalOpacity: {
+			opacity: 1,
 		},
 });
