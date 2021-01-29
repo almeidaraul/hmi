@@ -7,6 +7,8 @@ import NumericalInput from './NumericalInput';
 import { AntDesign } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
+import useStrings from '../assets/useStrings';
+const Strings = useStrings();
 
 export type IntervalInfo = {
 	ci: string,
@@ -36,33 +38,53 @@ export function IntervalInput(props: IntervalInputProps) {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.text}>{formattedHour()}:</Text>
-			<NumericalInput
-				style={styles.input}
-				placeholder="100"
-				onChangeText={text => !props.editLock && props.setCI(text)}
-				defaultValue={props.ci}
-				maxLength={2}
-				editable={!props.editLock}
-			/>
-			<NumericalInput
-				style={styles.input}
-				placeholder="100"
-				onChangeText={text => !props.editLock && props.setFS(text)}
-				defaultValue={props.fs}
-				maxLength={2}
-				editable={!props.editLock}
-			/>
-			<IntervalButton
-				onPress={() => console.log("TODO")}
-				editLock={props.editLock}
-				name="copy1"
-			/>
-			<IntervalButton
-				onPress={() => console.log("TODO")}
-				editLock={props.editLock}
-				name="delete"
-			/>
+			<View style={styles.intervalContainer}>
+				<Text style={styles.intervalText}>{formattedHour()}:01</Text>
+			</View>
+			<View style={styles.inputContainer}>
+				<View style={styles.inputSubContainer}>
+					<View style={styles.inputSubTextContainer}>
+						<Text style={styles.inputGuideText}>
+							{ Strings.carb_insulin }:
+						</Text>
+					</View>
+					<NumericalInput
+						style={styles.input}
+						placeholder="100"
+						onChangeText={text => !props.editLock && props.setCI(text)}
+						defaultValue={props.ci}
+						maxLength={2}
+						editable={!props.editLock}
+					/>
+				</View>
+				<View style={styles.inputSubContainer}>
+					<View style={styles.inputSubTextContainer}>
+						<Text style={styles.inputGuideText}>
+							{ Strings.sensibility_factor }:
+						</Text>
+					</View>
+					<NumericalInput
+						style={styles.input}
+						placeholder="100"
+						onChangeText={text => !props.editLock && props.setFS(text)}
+						defaultValue={props.fs}
+						maxLength={2}
+						editable={!props.editLock}
+					/>
+				</View>
+			</View>
+			<View style={styles.buttonsContainer}>
+				<IntervalButton
+					onPress={() => console.log("TODO")}
+					editLock={props.editLock}
+					name="copy1"
+				/>
+				<IntervalButton
+					onPress={() => console.log("TODO")}
+					editLock={props.editLock}
+					name="delete"
+				/>
+			</View>
 		</View>
 	);
 }
@@ -74,9 +96,10 @@ const IntervalButton = (props: IntervalButtonProps) => {
 	const style = props.editLock ? styles.lowOpacity : styles.normalOpacity;
 	return (
 		<TouchableOpacity
+			style={styles.buttonWrapper}
 			onPress={props.onPress}
 		>
-			<AntDesign name={props.name} size={24} color={color} style={style}/>
+			<AntDesign name={props.name} size={30} color={color} style={style}/>
 		</TouchableOpacity>	
 	);
 }
@@ -89,7 +112,52 @@ const styles = StyleSheet.create({
 			justifyContent: 'flex-start',
 			marginVertical: 2,
 		},
-		text: {
+		intervalContainer: {
+			borderColor: Colors.light.tabIconDefault,
+			borderStyle: 'solid',
+			borderWidth: 1,
+			borderRadius: 3,
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'center',
+			height: '100%',
+			padding: 15,
+			marginRight: 5,
+		},
+		inputContainer: {
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
+		inputSubContainer: {
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
+		inputSubTextContainer: {
+			height: '100%',
+			minWidth: 35,
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'flex-start',
+		},
+		inputGuideText: {
+			textAlign: 'left',
+		},
+		buttonsContainer: {
+			height: '100%',
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'flex-start',
+		},
+		buttonWrapper: {
+			height: '100%',
+			padding: 5,
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
+		intervalText: {
 			margin: 5,
 		},
 		input: {

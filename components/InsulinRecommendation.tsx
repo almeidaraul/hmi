@@ -40,7 +40,6 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 		const ci_now = intervals[currentHour].ci;
 		const fs_next = intervals[nextHour].fs;
 		const ci_next = intervals[nextHour].ci;
-		//console.log({currentHour, nextHour, fs_now, ci_now, fs_next, ci_next});
 
 		let insulin: number;
 		if (now) {
@@ -52,11 +51,11 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
 	};
 
   const recomendation_string = () => {
-	var u = calculateInsulin(true);
-	var i = calculateInsulin(false);
-	var content_raw = u == 1 ? Strings.take_now_singular : Strings.take_now_plural;
-	content_raw = content_raw.split('%');
-	return content_raw[0] + u + content_raw[1] + i + content_raw[2] + in15minutes() + content_raw[3];
+		var u = calculateInsulin(true);
+		var i = calculateInsulin(false);
+		var content_raw = u == 1 ? Strings.take_now_singular : Strings.take_now_plural;
+		content_raw = content_raw.split('%');
+		return content_raw[0] + u + content_raw[1] + i + content_raw[2] + in15minutes() + content_raw[3];
   }
 	
   return (
@@ -65,8 +64,9 @@ export default function InsulinRecommendation(props: InsulinRecommendationProps)
         <Text
           style={styles.text}
           lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-			{recomendation_string()}
+          darkColor="rgba(255,255,255,0.8)"
+				>
+					{recomendation_string()}
         </Text>
       </View>
     </View>
