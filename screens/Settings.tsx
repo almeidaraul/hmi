@@ -6,6 +6,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { defaultIntervals, saveIntervals, getIntervals } from '../constants/persistentStorageFunctions';
 import { IntervalInfo, IntervalInput } from '../components/IntervalInput';
+import { AddButton } from '../components/AddButton';
 import { Text, ScrollView, View } from '../components/Themed';
 
 import useStrings from '../assets/useStrings';
@@ -51,6 +52,10 @@ export default function Settings() {
 		setIntervals(new_intervals);
 	};
 
+	const newInterval = () => {
+		console.log("TODO");
+	}
+
   return (
     <ScrollView>
 			<View style={styles.container}>
@@ -91,6 +96,7 @@ export default function Settings() {
 					/>
 				);
 			})}
+			<AddButton editLock={editLock} onPress={newInterval} />
 			</View>
     </ScrollView>
   );

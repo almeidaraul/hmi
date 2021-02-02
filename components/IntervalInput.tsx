@@ -39,7 +39,7 @@ export function IntervalInput(props: IntervalInputProps) {
 	return (
 		<View style={styles.container}>
 			<View style={styles.intervalContainer}>
-				<Text style={styles.intervalText}>{formattedHour()}:01</Text>
+				<Text style={styles.intervalText}>{formattedHour()}:00</Text>
 			</View>
 			<View style={styles.inputContainer}>
 				<View style={styles.inputSubContainer}>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 			flexDirection: 'row',
 			alignItems: 'center',
 			justifyContent: 'flex-start',
-			marginVertical: 2,
+			marginVertical: 4,
 		},
 		intervalContainer: {
 			borderColor: Colors.light.tabIconDefault,
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
 		},
 		inputGuideText: {
 			textAlign: 'left',
+			fontWeight: 'bold',
 		},
 		buttonsContainer: {
 			height: '100%',
